@@ -1,17 +1,24 @@
 
 import './App.css';
+import { BrowserRouter as Router,Route,Routes } from "react-router-dom"
+import Home from './Home';
+import Universities from './Universities';
+import PostalLookup from './PostalLookup';
+import Navbar from './Navbar';
 
 function App() {
   return (
-    <div className="home">
-      <header>
-        <a href="./App.js">Home</a>
-        <ul>
-          <li><a href="./Universities.js">Universities</a></li>
-          <li><a href="./PostalLookup.js">Postal Lookup</a></li>
-        </ul>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />}>
+            </Route>
+            <Route path="/Universities" element={<Universities />}>
+            </Route>
+            <Route path="/PostalLookup" element={<PostalLookup />}>
+            </Route>
+          </Routes>
+    </Router>
   );
 }
 
