@@ -2,16 +2,16 @@
   padding: 20px;
 }
 
-header {
+nav {
   white-space: nowrap;
   text-align: center;
 }
 
-header a, ul {
+nav a, ul {
   display: inline-block;
 }
 
-header ul li {
+nav ul li {
   display: inline;
   list-style: none;
   padding: 0 20px;
