@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import ZipCodeForm from './components/ZipCodeForm';
+// import ZipCodeInfo from "./components/ZipCodeInfo";
 
 function PostalLookup() {
+    const [zipCode, setZipCode] = useState('');
     return(
-        <div>Postal Lookup</div>
+        <div>
+            <ZipCodeForm zipCode={zipCode} setZipCode={setZipCode} />
+            {/* <ZipCodeInfo /> */}
+        </div> 
     );
 }
 
