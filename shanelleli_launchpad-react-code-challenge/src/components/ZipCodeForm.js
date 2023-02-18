@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ZipCodeForm = ({ zipCode, setZipCode }) => {
+const ZipCodeForm = (props) => {
+    const [zipCode, setZipCode] = useState('');
 
-    const submitZipCodeHandler = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setZipCode(e.target.value)
+        props.onSubmit(zipCode);
+        setZipCode("");
     }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input value={zipCode} onChange={event => setZipCode(event.target.value)} type="text" className="zipcode-input" placeholder="Enter your zipcode here"></input>
-            <button onClick={submitZipCodeHandler} className="submit-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button className="submit-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     );
 }

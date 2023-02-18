@@ -34,7 +34,7 @@ a:hover {
 /* Styling for postal lookup page */
 
 form {
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 5px 5px;
   border: 2px lightgrey solid;
   border-radius: 10px;
@@ -48,4 +48,29 @@ form * {
 
 button {
   background-color: white;
+}
+
+.zip-info {
+  
+  padding: 20px;
+  text-align: center;
+}
+
+table {
+  border: 2px solid lightskyblue;
+  border-radius: 5px;
+  margin: auto;
+}
+
+th {
+  background-color: aquamarine;
+}
+
+td {
+  min-width: fit-content;
+  background-color: aqua;
+}
+
+th, td {
+  padding: 10px;
 }
