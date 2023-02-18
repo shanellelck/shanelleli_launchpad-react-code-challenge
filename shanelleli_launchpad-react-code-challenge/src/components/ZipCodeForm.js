@@ -10,8 +10,9 @@ const ZipCodeForm = (props) => {
     }
     return (
         <form onSubmit={handleSubmit}>
+            <i class="fa-solid fa-magnifying-glass"></i>
             <input value={zipCode} onChange={event => setZipCode(event.target.value)} type="text" className="zipcode-input" placeholder="Enter your zipcode here"></input>
-            <button className="submit-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button className="submit-button" type="submit">Lookup</button>
         </form>
     );
 }

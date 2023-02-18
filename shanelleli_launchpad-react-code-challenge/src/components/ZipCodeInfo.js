@@ -3,6 +3,9 @@ import React from "react";
 const ZipCodeInfo = ({ info, error }) => {
     return(
         <div className="zip-info">
+            {error && (
+                <div>{error}</div>
+            )}
             {info && (
                 <div>
                     <p>Results for Post Code: {info['post code']}</p>
