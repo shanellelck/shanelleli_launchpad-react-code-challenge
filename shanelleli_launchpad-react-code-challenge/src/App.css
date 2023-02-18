@@ -31,40 +31,46 @@ a:hover {
 }
 
 
-/* header ul{
-  display: flex;
-  justify-content: space-around;
+/* Styling for postal lookup page */
+
+form {
+  margin: 40px auto;
+  padding: 5px 5px;
+  border: 2px lightgrey solid;
+  border-radius: 10px;
+  width: fit-content;
 }
 
-
-
-*/
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+form * {
+  border: none;
+  margin: auto;
 }
 
-.App-link {
-  color: #61dafb;
-} */
+button {
+  background-color: white;
+}
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.zip-info {
+  
+  padding: 20px;
+  text-align: center;
+}
+
+table {
+  border: 2px solid lightskyblue;
+  border-radius: 5px;
+  margin: auto;
+}
+
+th {
+  background-color: aquamarine;
+}
+
+td {
+  min-width: fit-content;
+  background-color: aqua;
+}
+
+th, td {
+  padding: 10px;
+}
