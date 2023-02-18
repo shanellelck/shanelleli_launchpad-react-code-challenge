@@ -1,3 +1,4 @@
+
 .home {
   padding: 20px;
 }
@@ -18,11 +19,11 @@ nav ul li {
 }
 
 a {
-  color: grey;
+  color: #10477A;
   font-size: x-large;
   font-family: monospace;
   text-decoration: none;
-  background:linear-gradient(180deg, transparent 60%, lightblue 60%);
+  background:linear-gradient(180deg, rgba(255,255,255,0) 50%, #ffdb9f 0%);
 }
 
 
@@ -30,24 +31,65 @@ a:hover {
   background:linear-gradient(180deg, transparent 20%, lightblue 60%);
 }
 
+/* Styling for universities page */
+
+.p-title {
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.select-list {
+  margin: auto;
+}
+
+select {
+  height: 34px;
+  border: 2px solid #10477A;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.uni-info {
+  border: 2px solid #10477A;
+  width: 70vw;
+  margin: 10px auto;
+  padding: 10px;
+}
+
 
 /* Styling for postal lookup page */
 
 form {
+  height: 34px;
   margin: 40px auto;
-  padding: 5px 5px;
-  border: 2px lightgrey solid;
-  border-radius: 10px;
+  padding: 4px 4px;
+  border: 2px solid #10477A;
   width: fit-content;
 }
 
 form * {
-  border: none;
+  height: inherit;
+  border: 0;
   margin: auto;
 }
 
 button {
-  background-color: white;
+  background-color: #C2EEFF;
+  color: #10477A;
+  height: inherit;
+}
+
+.zipcode-input:focus {
+  outline: none;
+}
+
+button:active {
+  background-color: #FF4F4F;
+}
+i {
+  color: #FF4F4F;
+  padding: 4px;
 }
 
 .zip-info {
@@ -57,18 +99,18 @@ button {
 }
 
 table {
-  border: 2px solid lightskyblue;
+  border: 2px solid #10477A;
   border-radius: 5px;
   margin: auto;
 }
 
 th {
-  background-color: aquamarine;
+  background-color: #ffdb9f;
 }
 
 td {
   min-width: fit-content;
-  background-color: aqua;
+  background-color: #C2EEFF;
 }
 
 th, td {
