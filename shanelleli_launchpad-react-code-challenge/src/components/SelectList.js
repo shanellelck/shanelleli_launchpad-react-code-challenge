@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 
-const SelectList = () => {
+const SelectList = ( props ) => {
     const [list, setList] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState('');
     const [error, setError] = useState('');
@@ -19,19 +19,24 @@ const SelectList = () => {
         fetchData();
       }, []);
 
-    const handleCountryChange = event => {
-        setSelectedCountry(event.target.value);
+    const handleSelectChange = event => {
+        const optionSelected = event.target.value;
+        setSelectedCountry(optionSelected);
+        props.onOptionChange(optionSelected);
     };
     
+    // sort to render the countries in alphabetical order
+    // since the information rendered by the api is random
+    const sortedList = [...list].sort((a, b) => a.localeCompare(b));
     return (
         <div className="select-list">
             {error && (
             <div>{error}</div>
             )}
             {list && (
-                <select value={selectedCountry} onChange={handleCountryChange}>
+                <select value={selectedCountry} onChange={handleSelectChange}>
                 <option value="">--Select a country--</option>
-                {list.map(country => (
+                {sortedList.map(country => (
                     <option key={country} value={country}>
                     {country}
                     </option>
