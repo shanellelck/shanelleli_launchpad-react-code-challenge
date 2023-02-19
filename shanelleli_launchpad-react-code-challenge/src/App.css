@@ -1,4 +1,6 @@
-
+.App {
+  background-color: lightgray;
+}
 .home {
   padding: 20px;
 }
@@ -8,7 +10,7 @@ nav {
   text-align: center;
 }
 
-nav a, ul {
+nav a, nav ul {
   display: inline-block;
 }
 
@@ -30,6 +32,56 @@ a {
 a:hover {
   background:linear-gradient(180deg, transparent 20%, lightblue 60%);
 }
+
+/* Styling the home page */
+
+h1 {
+  text-align: center;
+  
+}
+
+.post-title  {
+  font-family:monospace;
+  color: grey;
+}
+
+.post-body {
+  color: grey;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post-list li {
+  list-style: none;
+  border: #10477A 2px solid;
+  margin: 5px;
+  width: 25vw;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.edit-btn, .delete-btn {
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid #10477A;
+}
+
+.edit-btn:hover {
+  background-color: #ffdb9f;
+  color: black;
+}
+
+.delete-btn:hover {
+  background-color: #FF4F4F;
+  color: white;
+}
+
 
 /* Styling for universities page */
 
@@ -58,6 +110,40 @@ select {
 }
 
 
+/* Styling for universities page */
+
+.p-title {
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.select-list {
+  margin: auto;
+}
+
+select {
+  height: 34px;
+  border: 2px solid #10477A;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.uni-info {
+  border: 2px solid #10477A;
+  width: 70vw;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.uni-location {
+  display: flex;
+}
+
+.uni-location p {
+  padding-right: 5px;
+}
+
 /* Styling for postal lookup page */
 
 form {
@@ -84,7 +170,7 @@ button {
   outline: none;
 }
 
-button:active {
+.submit-button:active {
   background-color: #FF4F4F;
 }
 i {
