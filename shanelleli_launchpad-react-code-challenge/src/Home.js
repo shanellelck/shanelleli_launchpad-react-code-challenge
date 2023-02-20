@@ -13,7 +13,7 @@ function Home({ posts, fetchPosts }) {
             <h1>Posts</h1>
             <div className="options">
                 <form>
-                    <input className="search-id" placeholder="Enter the id here"></input>
+                    <input className="search-id-btn" placeholder="Enter the id here"></input>
                     <button className="submit-btn">Enter</button>
                 </form>
                 <button className="add-post">Add a Post</button>
@@ -24,7 +24,7 @@ function Home({ posts, fetchPosts }) {
                 <div>{posts.error}</div>
             ) : posts.posts.length ? (
                 <>
-                <PostList posts={posts.posts} />
+                    <PostList posts={posts.posts} />
                 </>
             ) : (
                 <div>No posts found.</div>
