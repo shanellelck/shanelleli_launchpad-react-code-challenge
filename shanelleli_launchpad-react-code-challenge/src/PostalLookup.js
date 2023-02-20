@@ -1,29 +1,24 @@
-import React, { useState } from "react";
-import axios from 'axios';
+import React from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchZipCode } from './store/zipCodeActions';
 import ZipCodeForm from './components/ZipCodeForm';
 import ZipCodeInfo from "./components/ZipCodeInfo";
 
 function PostalLookup() {
-    const [info, setInfo] = useState(null);
-    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const { info, error, loading} = useSelector(state => state.zipCode);
 
     const handleZipCodeSubmit = (zipCode) => {
         if (zipCode) {
-            axios.get(`https://api.zippopotam.us/us/${zipCode}`)
-            .then(response => {
-                setInfo(response.data);
-                setError(null);
-            })
-            .catch(error => {
-                setInfo(null);
-                setError('Error fetching ZIP code information');
-            });
+            dispatch(fetchZipCode(zipCode));
         }
     }
     return(
         <div>
             <ZipCodeForm onSubmit={handleZipCodeSubmit} />
-            <ZipCodeInfo info={info} error={error}/>
+            {loading && <div>Loading...</div>}
+            {info && <ZipCodeInfo info={info} error={error}/>}
+            {error && <div>{error}</div>}
         </div> 
     );
 }
