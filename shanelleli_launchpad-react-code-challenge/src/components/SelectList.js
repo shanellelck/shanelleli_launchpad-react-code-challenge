@@ -1,40 +1,23 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 
 const SelectList = ( props ) => {
-    const [list, setList] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState('');
-    const [error, setError] = useState('');
-
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await fetch('https://countriesnow.space/api/v0.1/countries/info?returns=none');
-            const data = await response.json();
-            setList(data.data.map(country => country.name));
-          } catch (error) {
-            console.log(error);
-            setError('An error occurred while loading the country list. Please try again later.');
-          }
-        };
-        fetchData();
-      }, []);
+  const { countries, onOptionChange, value } = props;
 
     const handleSelectChange = event => {
         const optionSelected = event.target.value;
-        setSelectedCountry(optionSelected);
-        props.onOptionChange(optionSelected);
+        onOptionChange(optionSelected);
     };
     
     // sort to render the countries in alphabetical order
     // since the information rendered by the api is random
-    const sortedList = [...list].sort((a, b) => a.localeCompare(b));
+    const sortedList = [...countries].sort((a, b) => a.localeCompare(b));
     return (
         <div className="select-list">
-            {error && (
-            <div>{error}</div>
+            {countries.length === 0 && (
+              <div>Loading countries...</div>
             )}
-            {list && (
-                <select value={selectedCountry} onChange={handleSelectChange}>
+            {countries.length > 0 && (
+                <select value={value} onChange={handleSelectChange}>
                 <option value="">--Select a country--</option>
                 {sortedList.map(country => (
                     <option key={country} value={country}>
