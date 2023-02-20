@@ -106,6 +106,19 @@ h1 {
 }
 
 
+.edit-form {
+  display: block;
+}
+
+.edit-form * {
+  padding: 5px;
+}
+
+.edit-form label{
+  display: block;
+}
+
+
 /* Styling for universities page */
 
 .p-title {
@@ -173,7 +186,7 @@ select {
 
 /* Styling for postal lookup page */
 
-form {
+.zipCode-form {
   height: 34px;
   margin: 40px auto;
   padding: 4px 4px;
@@ -181,7 +194,7 @@ form {
   width: fit-content;
 }
 
-form * {
+.zipCode-form * {
   height: inherit;
   border: 0;
   margin: auto;

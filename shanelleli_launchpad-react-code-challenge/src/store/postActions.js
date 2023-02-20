@@ -2,6 +2,7 @@ import {
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
+  EDIT_POST,
   DELETE_POST
 } from './actionTypes'
 
@@ -20,6 +21,18 @@ export const fetchPostsFailure = (error) => ({
   payload: error
 });
 
+export const editPost = (id, post) => ({
+  type: EDIT_POST,
+  payload: { id, post },
+});
+
+export const deletePost = (postId) => {
+  return {
+    type: DELETE_POST,
+    payload: postId
+  };
+};
+
 // Thunk action creator
 export const fetchPosts = () => {
   return (dispatch) => {
@@ -31,9 +44,15 @@ export const fetchPosts = () => {
   };
 };
 
-export const deletePost = (postId) => {
-  return {
-    type: DELETE_POST,
-    payload: postId
-  };
-};
+
+
+export const updatePost = (id, post) =>
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(post),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then((response) => response.json());
+
+
