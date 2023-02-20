@@ -16,9 +16,9 @@ function PostalLookup() {
     return(
         <div>
             <ZipCodeForm onSubmit={handleZipCodeSubmit} />
-            {loading && <div>Loading...</div>}
+            {loading && <div className="loading">Loading...</div>}
             {info && <ZipCodeInfo info={info} error={error}/>}
-            {error && <div>{error}</div>}
+            {error && <div className="error-msg">{error}</div>}
         </div> 
     );
 }

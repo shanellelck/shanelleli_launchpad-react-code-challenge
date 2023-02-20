@@ -11,8 +11,15 @@ function Home({ posts, fetchPosts }) {
     return(
         <div>
             <h1>Posts</h1>
+            <div className="options">
+                <form>
+                    <input className="search-id" placeholder="Enter the id here"></input>
+                    <button className="submit-btn">Enter</button>
+                </form>
+                <button className="add-post">Add a Post</button>
+            </div>
             {posts.loading ? (
-                <div>Loading...</div>
+                <div className="loading">Loading Posts...</div>
             ) : posts.error ? (
                 <div>{posts.error}</div>
             ) : posts.posts.length ? (
