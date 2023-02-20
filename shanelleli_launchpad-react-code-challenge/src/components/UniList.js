@@ -1,4 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchUniversities } from "../store/universitiesActions";
 import UniInfo from "./UniInfo";
 
 /**
@@ -7,51 +9,50 @@ import UniInfo from "./UniInfo";
  * @param {string} country - The country for which to display universities.
  * @returns {JSX.Element} - The UniList component.
  */
-const UniList = ({country}) => {
-    const [uniList, setUniList] = useState([]);
-    const [error, setError] = useState('');
+const UniList = ({uniList, country, loading, fetchUniversities}) => {
+  
+  useEffect(() => {
+    fetchUniversities(country);
+  }, [country, fetchUniversities]);
 
-    // add country as dependency
-    useEffect(() => {
-      // Fetches the list of universities for the given country
-      const fetchData = async () => {
-        try {
-          const response = await fetch(
-            `http://universities.hipolabs.com/search?country=${country}`
-          );
-          const data = await response.json();
-          setUniList(data);
-        } catch (error) {
-          setError(error);
-        }
-      };
-      fetchData();
-      }, [country]);
 
     // ensure the list rendered only has unique universities
     // by filtering the duplicates
     const uniqueUniList = uniList.filter((uni, index, array) => {
       return index === array.findIndex((t) => t.name === uni.name);
     });
-
-    // sort the unique list to render the list in alphabetical order
-    const sortedUniList = [...uniqueUniList].sort((a, b) => a.name.localeCompare(b.name));
+  
+    const sortedUniList = [...uniqueUniList].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
     return(
-        <div className="uni-list">
-            {error && (
-                <div>{error}</div>
-            )}
-            {uniList && (
-                <div>
-                    <p className="p-title">List of Universities in {country}</p>
-                    {sortedUniList.map(university => (
-                        <UniInfo key={university.name} university={university} />
-                    ))}
-                </div>
-            )}
-            
-        </div>
+      <div className="uni-list">
+      {loading ? (
+        <p>Loading universities...</p>
+      ) : (
+        <>
+          <p className="p-title">List of Universities in {country}</p>
+          {sortedUniList.map((university) => (
+            <UniInfo key={university.name} university={university} />
+          ))}
+        </>
+      )}
+    </div>
     );
 }
 
-export default UniList;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    uniList: state.universities.uniList,
+    loading: state.universities.loading,
+    country: ownProps.country,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUniversities: (country) => dispatch(fetchUniversities(country)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UniList);
