@@ -31,11 +31,36 @@ a:hover {
   background:linear-gradient(180deg, transparent 20%, lightblue 60%);
 }
 
+.loading, .error-msg {
+  font-family: monospace;
+  color:#10477A;
+  text-align: center;
+  font-size: x-large;
+}
+
+.error-msg {
+  padding: 30px 0;
+}
+
 /* Styling the home page */
 
 h1 {
   text-align: center;
   
+}
+
+.options {
+  display: flex;
+  height: fit-content;
+}
+
+.add-post {
+  color:#10477A;
+  border: 2px solid #10477A;
+  background-color: #C2EEFF;
+  padding: 10px;
+  height: fit-content;
+  margin: auto;
 }
 
 .post-title  {
@@ -86,6 +111,10 @@ h1 {
 .p-title {
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.post-id {
+  display: inline;
 }
 
 .select-list {
@@ -158,7 +187,7 @@ form * {
   margin: auto;
 }
 
-button {
+.submit-button {
   background-color: #C2EEFF;
   color: #10477A;
   height: inherit;

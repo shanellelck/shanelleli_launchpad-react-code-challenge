@@ -1,4 +1,9 @@
-import { FETCH_POSTS_REQUEST,FETCH_POSTS_SUCCESS,FETCH_POSTS_FAILURE } from './actionTypes'
+import { 
+  FETCH_POSTS_REQUEST,
+  FETCH_POSTS_SUCCESS,
+  FETCH_POSTS_FAILURE,
+  DELETE_POST
+} from './actionTypes'
 
 // Action creators
 export const fetchPostsRequest = () => ({
@@ -23,5 +28,12 @@ export const fetchPosts = () => {
       .then(response => response.json())
       .then(data => dispatch(fetchPostsSuccess(data)))
       .catch(error => dispatch(fetchPostsFailure(error)));
+  };
+};
+
+export const deletePost = (postId) => {
+  return {
+    type: DELETE_POST,
+    payload: postId
   };
 };

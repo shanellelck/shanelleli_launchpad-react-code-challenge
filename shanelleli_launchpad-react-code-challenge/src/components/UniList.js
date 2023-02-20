@@ -28,7 +28,7 @@ const UniList = ({uniList, country, loading, fetchUniversities}) => {
     return(
       <div className="uni-list">
       {loading ? (
-        <p>Loading universities...</p>
+        <p className="loading">Loading universities...</p>
       ) : (
         <>
           <p className="p-title">List of Universities in {country}</p>

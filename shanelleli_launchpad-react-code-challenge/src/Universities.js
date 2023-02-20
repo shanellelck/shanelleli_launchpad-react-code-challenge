@@ -14,9 +14,9 @@ function Universities() {
 
     useEffect(() => {
         dispatch(getCountries());
-      }, [dispatch]);
+    }, [dispatch]);
     
-      function handleCountryChange(country) {
+    function handleCountryChange(country) {
         setCountry(country);
     }
 

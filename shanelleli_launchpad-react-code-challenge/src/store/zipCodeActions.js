@@ -6,21 +6,21 @@ export const fetchZipCodeRequest = () => {
     return {
       type: FETCH_ZIPCODE_REQUEST
     };
-  };
+};
   
-  export const fetchZipCodeSuccess = (info) => {
-    return {
-      type: FETCH_ZIPCODE_SUCCESS,
-      payload: info
-    };
+export const fetchZipCodeSuccess = (info) => {
+  return {
+    type: FETCH_ZIPCODE_SUCCESS,
+    payload: info
   };
+};
   
-  export const fetchZipCodeFailure = (error) => {
-    return {
-      type: FETCH_ZIPCODE_FAILURE,
-      payload: error
-    };
+export const fetchZipCodeFailure = (error) => {
+  return {
+    type: FETCH_ZIPCODE_FAILURE,
+    payload: error
   };
+};
 
 
 // Thunk action creator
@@ -33,7 +33,7 @@ export const fetchZipCode = (zipCode) => {
         dispatch(fetchZipCodeSuccess(response.data));
       })
       .catch(error => {
-        dispatch(fetchZipCodeFailure('Error fetching ZIP code information'));
+        dispatch(fetchZipCodeFailure('Error fetching ZIP Code information or Invalid ZIP Code entered'));
       });
   };
 };

@@ -1,5 +1,10 @@
 // postReducer.js
-import { FETCH_POSTS_REQUEST, FETCH_POSTS_SUCCESS, FETCH_POSTS_FAILURE } from './actionTypes';
+import { 
+    FETCH_POSTS_REQUEST, 
+    FETCH_POSTS_SUCCESS, 
+    FETCH_POSTS_FAILURE,
+    DELETE_POST
+} from './actionTypes';
   
 const initialState = {
     loading: false,
@@ -25,6 +30,11 @@ const postReducer = (state = initialState, action) => {
                 loading: false,
                 posts: [],
                 error: action.payload
+            };
+        case DELETE_POST:
+            return {
+                ...state,
+                posts: state.posts.filter(post => post.id !== action.payload)
             };
         default:
             return state;

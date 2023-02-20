@@ -14,7 +14,7 @@ const SelectList = ( props ) => {
     return (
         <div className="select-list">
             {countries.length === 0 && (
-              <div>Loading countries...</div>
+              <p className="loading">Loading countries...</p>
             )}
             {countries.length > 0 && (
                 <select value={value} onChange={handleSelectChange}>
