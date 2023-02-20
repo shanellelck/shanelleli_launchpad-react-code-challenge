@@ -1,6 +1,7 @@
 import React from "react";
 
 const ZipCodeInfo = ({ info, error }) => {
+    console.log(info['country'])
     return(
         <div className="zip-info">
             {error && (
