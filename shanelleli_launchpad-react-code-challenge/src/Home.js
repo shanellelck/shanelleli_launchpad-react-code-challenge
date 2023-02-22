@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
-import { fetchPosts } from './store/postActions';
+import { fetchPosts, addPost } from './store/postActions';
 import SearchByID from "./components/SearchByID";
 import PostList from "./components/PostList";
+import AddPostModal from "./components/AddPostModal";
 
 function Home({ posts, fetchPosts }) {
     const [postId, setPostId] = useState('');
+    const [isAddPostModalOpen, setIsAddPostModalOpen] = useState(false);
     
     useEffect(() => {
         fetchPosts(); 
@@ -15,12 +17,20 @@ function Home({ posts, fetchPosts }) {
         setPostId("");
     };
 
+    const handleAddPostModalOpen = () => {
+        setIsAddPostModalOpen(true);
+    }
+    
+    const handleAddPostModalClose = () => {
+        setIsAddPostModalOpen(false);
+    }
+
     return(
         <div>
             <h1>Posts</h1>
             <div className="options">
                 <SearchByID onSearch={setPostId} onClear={clearSearch} />
-                <button className="add-post">Add a Post</button>
+                <button className="add-post" onClick={handleAddPostModalOpen}>Add a Post</button>
             </div>
             {posts.loading ? (
                 <div className="loading">Loading Posts...</div>
@@ -29,6 +39,7 @@ function Home({ posts, fetchPosts }) {
             ) : (
                 <PostList posts={posts.posts} postId={postId} />
             )}
+            <AddPostModal isOpen={isAddPostModalOpen} onRequestClose={handleAddPostModalClose} addPost={addPost} />
         </div>
     )
 }
@@ -37,4 +48,4 @@ const mapStateToProps = state => ({
     posts: state.posts
 });
 
-export default connect(mapStateToProps, { fetchPosts })(Home);
+export default connect(mapStateToProps, { fetchPosts, addPost })(Home);
