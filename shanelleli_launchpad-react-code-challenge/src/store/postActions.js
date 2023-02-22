@@ -2,9 +2,11 @@ import {
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_SUCCESS,
   FETCH_POSTS_FAILURE,
+  ADD_POST,
   EDIT_POST,
   DELETE_POST
-} from './actionTypes'
+} from './actionTypes';
+import axios from 'axios';
 
 // Action creators
 export const fetchPostsRequest = () => ({
@@ -33,6 +35,11 @@ export const deletePost = (postId) => {
   };
 };
 
+const addPostSuccess = (post) => ({
+  type: ADD_POST,
+  payload: post
+});
+
 // Thunk action creator
 export const fetchPosts = () => {
   return (dispatch) => {
@@ -55,5 +62,19 @@ export const updatePost = (id, post) =>
     },
   }).then((response) => response.json());
 
-
+export const addPost = (title, body, userId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+        title,
+        body,
+        userId
+      });
+      const post = response.data;
+      dispatch(addPostSuccess(post));
+    } catch (error) {
+      // Handle error
+    }
+  };
+};
 
