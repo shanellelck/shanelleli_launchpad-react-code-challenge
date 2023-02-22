@@ -13,11 +13,16 @@ function AddPostModal({ addPost, isOpen, onRequestClose }) {
 
   const handleAddPost = async (event) => {
     event.preventDefault();
-    try {
-      await addPost(title, body, userId);
+    const { success, post, error } = await addPost(title, body, userId);
+    if (success) {
+      console.log('Post added successfully:', post);
+      setTitle('');
+      setBody('');
+      setUserId('');
       setIsSuccess(true);
-    } catch (error) {
-      console.log(error);
+      // onRequestClose();
+    } else {
+      console.log('Error adding post:', error);
     }
   }
 
@@ -41,7 +46,6 @@ function AddPostModal({ addPost, isOpen, onRequestClose }) {
         <form onSubmit={handleAddPost}>
           <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Title"></input>
           <input type="text" value={body} onChange={(event) => setBody(event.target.value)} placeholder="Body"></input>
-          <input type="number" value={userId} onChange={(event) => setUserId(event.target.value)} placeholder="User ID"></input>
           <button type="submit">Add Post</button>
         </form>
       )}

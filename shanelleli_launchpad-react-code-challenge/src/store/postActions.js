@@ -62,19 +62,20 @@ export const updatePost = (id, post) =>
     },
   }).then((response) => response.json());
 
-export const addPost = (title, body, userId) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-        title,
-        body,
-        userId
-      });
-      const post = response.data;
-      dispatch(addPostSuccess(post));
-    } catch (error) {
-      // Handle error
-    }
+  export const addPost = (title, body, userId) => {
+    return async (dispatch) => {
+      try {
+        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+          title,
+          body,
+          userId
+        });
+        const post = response.data;
+        dispatch(addPostSuccess(post));
+        return { success: true, post };
+      } catch (error) {
+        console.log(error);
+        return { success: false, error };
+      }
+    };
   };
-};
-

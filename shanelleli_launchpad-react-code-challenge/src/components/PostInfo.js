@@ -39,12 +39,16 @@ const PostInfo = ({ post }) => {
             )}
             {edit && (
                 <form className="edit-form" onSubmit={handleSubmit}>
+                    <label htmlFor="userId">User ID</label>
+                    <input type="number" name="userId" defaultValue={post.userId} disabled readOnly/>
+                    <label htmlFor="postId">Post ID</label>
+                    <input type="number" name="postId" defaultValue={post.id} disabled readOnly/>
                     <label htmlFor="title">Title</label>
                     <input type="text" name="title" defaultValue={post.title} />
                     <label htmlFor="body">Body</label>
                     <textarea name="body" defaultValue={post.body}></textarea>
                     <label htmlFor="userId">User ID</label>
-                    <input type="number" name="userId" defaultValue={post.userId} />
+                    <input type="number" name="userId" defaultValue={post.userId} disabled readOnly/>
                     <button type="submit">Save</button>
                 </form>
             )}
