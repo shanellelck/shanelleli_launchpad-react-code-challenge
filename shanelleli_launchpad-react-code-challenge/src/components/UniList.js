@@ -29,13 +29,15 @@ const UniList = ({uniList, country, loading, fetchUniversities}) => {
       <div className="uni-list">
       {loading ? (
         <p className="loading">Loading universities...</p>
-      ) : (
+      ) : sortedUniList.length ? (
         <>
           <p className="p-title">List of Universities in {country}</p>
           {sortedUniList.map((university) => (
             <UniInfo key={university.name} university={university} />
           ))}
         </>
+      ) : (
+        <h1 className="no-results">No universities found.</h1>
       )}
     </div>
     );
