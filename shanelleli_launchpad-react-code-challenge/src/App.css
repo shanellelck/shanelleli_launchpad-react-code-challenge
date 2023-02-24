@@ -35,11 +35,12 @@ a:hover {
   background:linear-gradient(180deg, transparent 20%, lightblue 60%);
 }
 
-.loading, .error-msg {
+.loading, .error-msg, .no-results {
   font-family: monospace;
   color:#10477A;
   text-align: center;
   font-size: x-large;
+  padding-top: 20vh;
 }
 
 .error-msg {
@@ -267,12 +268,7 @@ select {
   text-align: center;
 }
 
-.uni-info {
-  border: 2px solid #10477A;
-  width: 70vw;
-  margin: 10px auto;
-  padding: 10px;
-}
+
 
 
 /* Styling for universities page */
@@ -296,9 +292,14 @@ select {
 
 .uni-info {
   border: 2px solid #10477A;
+  background: linear-gradient( #b6fbff, #83a4d4);
   width: 70vw;
   margin: 10px auto;
   padding: 10px;
+}
+
+.uni-name {
+  font-family: monospace;
 }
 
 .uni-location {
