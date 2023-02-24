@@ -1,6 +1,8 @@
-.App {
-  background-color: white;
+body {
+  background-color:white;
 }
+
+/* #ddf8f4 */
 .home {
   padding: 20px;
 }
@@ -47,59 +49,131 @@ a:hover {
 /* Styling the home page */
 
 h1 {
-  text-align: center;
-  
+  text-align: center; 
 }
 
-.options {
-  display: flex;
+.homepage-title {
+  font-family: 'Courier New', Courier, monospace;
+  color: #FF4F4F;
+}
+
+.homepage-options {
+  display: inline-flex;
+  width: 100vw;
   height: fit-content;
+  min-width: 717px;
+}
+
+.searchId-form {
+  margin-left: 20vw;
+  padding: 10px;
+  height: fit-content;
+  border: #10477A 2px solid;
+  border-radius: 30px;
+  background-color: #FFD8CB;
+}
+
+.searchId-form:hover {
+  border:#FF4F4F 2px solid;
+}
+
+.searchId-input {
+  border: none;
+  background-color: #FFD8CB;
+  width: 20vw;
+}
+
+
+.searchId-input:focus {
+  outline: none;
+}
+
+.searchId-submit-btn {
+  border: none;
+  background-color: #FFD8CB;
+}
+
+.searchId-clear-btn {
+  color:#10477A;
+  border: none;
+  background-color: #C2EEFF;
+  padding: 5px;
+  border-radius: 10px;
+  height: fit-content;
+  margin: auto 0px auto 5px;
 }
 
 .add-post {
   color:#10477A;
-  border: 2px solid #10477A;
-  background-color: #C2EEFF;
+  border: 2px solid #FFD8CB;
+  border-radius: 20px;
+  background: linear-gradient(#FFD8CB, #F9D29D);
   padding: 10px;
   height: fit-content;
   margin: auto;
 }
 
-.post-title  {
-  font-family:monospace;
-  color: grey;
+.add-post:hover {
+  border: #10477A 2px solid;
 }
 
+.post-title  {
+  font-family:monospace;
+  color: #7c574b;
+  min-height: 10vh;
+  vertical-align: center;
+}
+
+
 .post-body {
-  color: grey;
+  color: black;
+  min-height: 15vh;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 
 .post-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0px;
 }
 
 .post-list li {
+  display: block;
+  position: relative;
   list-style: none;
-  border: #10477A 2px solid;
-  margin: 5px;
-  width: 25vw;
+  border:#FFD8CB 2px solid;
+  margin: 15px;
+  width: 20vw;
+  min-width: 250px;
   padding: 10px 20px;
-  background-color: white;
-  border-radius: 7px;
+  border-radius: 10px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background: linear-gradient(#FFD8CB, #F9D29D);
 }
+
+.post-id {
+  float: right;
+  padding: 2px 10px;
+  border-radius: 20px;
+  background:#10477A;
+  color: white;
+}
+
 
 .edit-btn, .delete-btn {
-  padding: 5px;
+  color:#FF4F4F;
+  background-color: #ffffff;
+  padding: 7px;
   margin: 5px;
-  border: 2px solid #10477A;
+  border: none;
+  border-radius: 16px;
 }
 
+
 .edit-btn:hover {
-  background-color: #ffdb9f;
+  background-color: #C2EEFF;
   color: black;
 }
 
@@ -120,6 +194,54 @@ h1 {
 .edit-form label{
   display: block;
 }
+
+.close-down-btn {
+  color: #FF4F4F;
+  float: right;
+  background-color: #FFD8CB;
+  border: none;
+}
+
+.close-down-btn:hover {
+  color:#ffffff;
+}
+
+.modal {
+  top: 20vh;
+  border: #FFD8CB 2px solid;
+  background: linear-gradient(#FFD8CB, #F9D29D);
+  width: 60vw;
+  height: fit-content;
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.modal h2 {
+  font-family: monospace;
+}
+
+.modal label, .new-post-input {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.new-post-label, .new-post-input {
+  display: block;
+  padding: 10px 0px;
+}
+
+.add-post-btn, .close-btn {
+  padding: 7px;
+  margin: 20px 0px;
+  border-radius: 15px;
+}
+
+.add-post-btn:hover, .close-btn:hover {
+  background-color: #10477A;
+  border: 2px solid grey;
+  color: white;
+}
+
 
 
 /* Styling for universities page */
@@ -216,7 +338,8 @@ select {
 .submit-button:active {
   background-color: #FF4F4F;
 }
-i {
+
+.fa-magnifying-glass {
   color: #FF4F4F;
   padding: 4px;
 }

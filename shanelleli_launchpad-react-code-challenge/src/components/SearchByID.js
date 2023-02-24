@@ -18,10 +18,10 @@ const SearchByID = ( { onSearch, onClear } ) => {
     };
 
     return (
-        <form onSubmit={handleSearch}>
-            <input type="text" value={searchTerm} onChange={handleInputChange} className="search-id-btn" placeholder="Enter the id here"></input>
-            <button type="submit" className="submit-btn">Enter</button>
-            <button type="button" onClick={handleClear} className="clear-btn">Clear</button>
+        <form className="searchId-form" onSubmit={handleSearch}>
+            <button className="searchId-submit-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input className="searchId-input" type="text" value={searchTerm} onChange={handleInputChange} placeholder="Enter the id here"></input>
+            <button className="searchId-clear-btn" type="button" onClick={handleClear}>Clear</button>
         </form>
     )
 }

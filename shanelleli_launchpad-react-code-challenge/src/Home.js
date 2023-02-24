@@ -27,8 +27,8 @@ function Home({ posts, fetchPosts }) {
 
     return(
         <div>
-            <h1>Posts</h1>
-            <div className="options">
+            <h1 className="homepage-title">Posts</h1>
+            <div className="homepage-options">
                 <SearchByID onSearch={setPostId} onClear={clearSearch} />
                 <button className="add-post" onClick={handleAddPostModalOpen}>Add a Post</button>
             </div>
