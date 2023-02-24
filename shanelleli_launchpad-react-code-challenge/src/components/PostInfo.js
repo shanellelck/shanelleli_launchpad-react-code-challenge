@@ -34,8 +34,8 @@ const PostInfo = ({ post }) => {
                     <h2 className="post-title">{post.title}</h2>
                     <p className="post-body">&gt; {post.body}</p>
                     <div className="post-options">
-                        <button onClick={handleEdit} className="edit-btn">Edit Post</button>
-                        <button onClick={handleDelete} className="delete-btn">Delete Post</button>
+                        <button onClick={handleEdit} className="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onClick={handleDelete} className="delete-btn"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
             )}

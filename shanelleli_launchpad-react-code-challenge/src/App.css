@@ -169,7 +169,7 @@ h1 {
   padding: 7px;
   margin: 5px;
   border: none;
-  border-radius: 16px;
+  border-radius: 10px;
 }
 
 
@@ -242,33 +242,6 @@ h1 {
   border: 2px solid grey;
   color: white;
 }
-
-
-
-/* Styling for universities page */
-
-.p-title {
-  text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.post-id {
-  display: inline;
-}
-
-.select-list {
-  margin: auto;
-}
-
-select {
-  height: 34px;
-  border: 2px solid #10477A;
-  display: block;
-  margin: auto;
-  text-align: center;
-}
-
-
 
 
 /* Styling for universities page */
