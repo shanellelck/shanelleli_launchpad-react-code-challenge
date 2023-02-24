@@ -3,7 +3,6 @@ import {
     FETCH_POSTS_REQUEST, 
     FETCH_POSTS_SUCCESS, 
     FETCH_POSTS_FAILURE,
-    ADD_POST,
     EDIT_POST,
     DELETE_POST
 } from './actionTypes';
@@ -33,11 +32,6 @@ const postReducer = (state = initialState, action) => {
                 loading: false,
                 posts: [],
                 error: action.payload
-            };
-        case ADD_POST:
-            return {
-                ...state,
-                posts: [...state.posts, action.payload]
             };
         case EDIT_POST:
             const { id, post } = action.payload;

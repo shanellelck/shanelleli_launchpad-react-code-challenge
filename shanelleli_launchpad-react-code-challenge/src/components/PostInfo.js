@@ -30,11 +30,13 @@ const PostInfo = ({ post }) => {
         <div className="post-container">
             {!edit && (
                 <div className="post-info">
-                    <p className="post-id">Post ID: {post.id}</p>
+                    <span className="post-id">Post ID: {post.id}</span>
                     <h2 className="post-title">{post.title}</h2>
                     <p className="post-body">&gt; {post.body}</p>
-                    <button onClick={handleEdit} className="edit-btn">Edit Post</button>
-                    <button onClick={handleDelete} className="delete-btn">Delete Post</button>
+                    <div className="post-options">
+                        <button onClick={handleEdit} className="edit-btn">Edit Post</button>
+                        <button onClick={handleDelete} className="delete-btn">Delete Post</button>
+                    </div>
                 </div>
             )}
             {edit && (

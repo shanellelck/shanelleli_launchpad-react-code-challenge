@@ -35,18 +35,21 @@ function AddPostModal({ addPost, isOpen, onRequestClose }) {
   }
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
-      <h2>Add a Post</h2>
+    <Modal className="modal" isOpen={isOpen} onRequestClose={handleCloseModal}>
+      <button onClick={handleCloseModal} className="close-down-btn"><i class="fa-solid fa-lg fa-xmark"></i></button>
+      <h2 className="add-post-title">Add a Post</h2>
       {isSuccess ? (
         <>
-          <p>Post added successfully!</p>
-          <button onClick={handleCloseModal}>Close</button>
+          <p className="success-msg">Post added successfully!</p>
+          <button className="close-btn" onClick={handleCloseModal}>Close</button>
         </>
       ) : (
-        <form onSubmit={handleAddPost}>
-          <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Title"></input>
-          <input type="text" value={body} onChange={(event) => setBody(event.target.value)} placeholder="Body"></input>
-          <button type="submit">Add Post</button>
+        <form className="new-post-form" onSubmit={handleAddPost}>
+          <label className="new-post-label" htmlFor={title} >Post Title</label>
+          <input className="new-post-input" type="text" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Enter the title here" required></input>
+          <label className="new-post-label" htmlFor={body} >Content</label>
+          <textarea className="new-post-input" value={body} onChange={(event) => setBody(event.target.value)} placeholder="Enter text here" required></textarea>
+          <button className="add-post-btn" type="submit">Add Post</button>
         </form>
       )}
     </Modal>
